@@ -1,5 +1,4 @@
-﻿
-using FileReaderProject.Helpers;
+﻿using FileReaderProject.Helpers;
 using FileReaderProject.Models;
 using FileReaderProject.Services;
 using FileReaderProject.Services.Interfaces;
@@ -8,9 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
-
 namespace FileReaderProject;
-
 
 public partial class MainWindow : Window
 {

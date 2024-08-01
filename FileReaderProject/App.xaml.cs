@@ -4,9 +4,7 @@ using System.Windows;
 
 namespace FileReaderProject
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+   
     public partial class App : Application
     {
         public IConfiguration Configuration { get; private set; }

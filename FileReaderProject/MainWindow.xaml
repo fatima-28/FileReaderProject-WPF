@@ -6,6 +6,62 @@
         xmlns:local="clr-namespace:FileReaderProject"
         mc:Ignorable="d"
         Title="TestApp" Height="674" Width="2033" Background="White" ResizeMode="NoResize">
+    <Window.Resources>
+        <!-- Style for Select Folder Button -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="DarkGreen"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center" 
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style for Update Settings Button -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center" 
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,25 +69,18 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-           
             <TextBox x:Name="InputDirectoryTextBox" Margin="10" Width="400" IsReadOnly="True"/>
 
-           
-            <Button Content="Select Folder" Click="SelectFolder_Click" Margin="10" />
+            <Button Content="Select Folder" Click="SelectFolder_Click" Style="{StaticResource PrimaryButtonStyle}"/>
 
-           
             <TextBox x:Name="PollingIntervalTextBox" Margin="10" Width="100" />
 
-           
-            <Button Content="Update Settings" Click="UpdateSettings_Click" Margin="10" />
+            <Button Content="Update Settings" Click="UpdateSettings_Click" Style="{StaticResource SecondaryButtonStyle}"/>
         </StackPanel>
 
-    
         <ListBox x:Name="FileListBox" Grid.Row="1" Margin="10" />
 
-        
         <DataGrid x:Name="FileDetailsDataGrid" Grid.Row="2" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" />
     </Grid>
 </Window>
