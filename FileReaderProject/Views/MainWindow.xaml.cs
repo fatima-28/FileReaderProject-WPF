@@ -129,8 +129,6 @@ public partial class MainWindow : Window
                 isAnyChangesExist = true;
             }
 
-
-
             _watcher?.StopWatching();
 
             _watcher.StartWatching(newDirectory, pollingInterval);
@@ -139,9 +137,7 @@ public partial class MainWindow : Window
 
             if (isAnyChangesExist)
             {
-
                 MessageBox.Show("Settings updated successfully.");
-
             }
         }
         catch (Exception ex)

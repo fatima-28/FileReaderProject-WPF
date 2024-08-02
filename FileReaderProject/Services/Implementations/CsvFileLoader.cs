@@ -11,29 +11,29 @@ namespace FileReaderProject.Services.Implementations;
 public class CsvFileLoader : IFileLoader
 {
 
-    public List<TradeData> Load(string filePath)
+    public List<TradeData> Load(string path)
     {
 
         try
         {
-            var trades = new List<TradeData>();
+            var tradeDataList = new List<TradeData>();
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 MissingFieldFound = null,
             };
 
-            using (var reader = new StreamReader(filePath))
+            using (var reader = new StreamReader(path))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Read();
                 csv.ReadHeader();
 
-                var fileName = Path.GetFileName(filePath);
+                var fileName = Path.GetFileName(path);
 
                 while (csv.Read())
                 {
-                    trades.Add(new TradeData
+                    tradeDataList.Add(new TradeData
                     {
                         Date = csv.GetField<DateTime>("Date"),
                         Open = csv.GetField<decimal>("Open"),
@@ -46,7 +46,7 @@ public class CsvFileLoader : IFileLoader
                 }
             }
 
-            return trades;
+            return tradeDataList;
 
         }
         catch (Exception ex)

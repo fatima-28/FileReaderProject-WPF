@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TestApp" Height="674" Width="2033" Background="White" ResizeMode="NoResize">
     <Window.Resources>
-        <!-- Style for Select Folder Button -->
+        
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#4CAF50"/>
             <Setter Property="Foreground" Value="White"/>
@@ -34,7 +34,7 @@
             </Setter>
         </Style>
 
-        <!-- Style for Update Settings Button -->
+       
         <Style x:Key="SecondaryButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#2196F3"/>
             <Setter Property="Foreground" Value="White"/>

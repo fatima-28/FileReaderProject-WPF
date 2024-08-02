@@ -10,14 +10,14 @@ namespace FileReaderProject.Services.Implementations;
 
 public class XmlFileLoader : IFileLoader
 {
-    public List<TradeData> Load(string filePath)
+    public List<TradeData> Load(string path)
     {
 
         try
         {
             var tradeDataList = new List<TradeData>();
 
-            var doc = XDocument.Load(filePath);
+            var doc = XDocument.Load(path);
             var values = doc.Root.Elements("value");
 
 
@@ -31,7 +31,7 @@ public class XmlFileLoader : IFileLoader
                     Low = decimal.Parse(value.Attribute("low").Value, CultureInfo.InvariantCulture),
                     Close = decimal.Parse(value.Attribute("close").Value, CultureInfo.InvariantCulture),
                     Volume = decimal.Parse(value.Attribute("volume").Value, CultureInfo.InvariantCulture),
-                    FileName = Path.GetFileName(filePath)
+                    FileName = Path.GetFileName(path)
                 };
 
                 tradeDataList.Add(tradeData);

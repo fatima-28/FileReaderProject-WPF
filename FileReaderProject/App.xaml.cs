@@ -2,24 +2,22 @@
 using System.IO;
 using System.Windows;
 
-namespace FileReaderProject
+namespace FileReaderProject;
+
+
+public partial class App : Application
 {
-   
-    public partial class App : Application
+    public IConfiguration Configuration { get; private set; }
+
+    protected override void OnStartup(StartupEventArgs e)
     {
-        public IConfiguration Configuration { get; private set; }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
+        base.OnStartup(e);
 
 
-            var builder = new ConfigurationBuilder()
-           .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Resources"))
-           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+        var builder = new ConfigurationBuilder()
+       .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Resources"))
+       .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-            Configuration = builder.Build();
-        }
+        Configuration = builder.Build();
     }
-
 }
